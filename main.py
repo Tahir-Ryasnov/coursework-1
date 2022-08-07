@@ -77,15 +77,12 @@ class YaDisk:
         """Сохраняем фото в папку и запускаем прогресс бар"""
         sending_url = 'https://cloud-api.yandex.net/v1/disk/resources/upload'
         print('Подождите, операция выполняется')
-        count = 0
-        while count < len(file_to_send.keys()):
-            for key in tqdm(file_to_send.keys()):
-                params = {'path': f'Photos/{key}',
-                          'url': file_to_send[key],
-                          'overwrite': False}
-                requests.post(sending_url, headers=self.headers, params=params)
-                count += 1
-        print('Фотографии сохранены')
+        for key in tqdm(file_to_send.keys()):
+            params = {'path': f'Photos/{key}',
+                      'url': file_to_send[key],
+                      'overwrite': False}
+            requests.post(sending_url, headers=self.headers, params=params)
+            print('Фотографии сохранены')
 
 
 if __name__ == '__main__':

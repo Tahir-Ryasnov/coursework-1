@@ -13,7 +13,6 @@ ya_token = input('Введите токен с Полигона Яндекс.Д�
 
 
 class VkUser:
-
     def _get_photos_data(self, owner_id=vk_user_id, num=5):
         """Получаем данные по фотографиям с помощью photos.get"""
         vk_url = 'https://api.vk.com/method/photos.get'
